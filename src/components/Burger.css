@@ -1,0 +1,148 @@
+.burgerIngredients {
+  height: 400px;
+  width: 100%;
+  overflow: scroll;
+  margin-bottom: 200px;
+}
+.burgerIngredients p {
+  text-align: center;
+}
+h2 {
+  text-align: center;
+}
+.ingredientsBlock {
+  background-color: #f4b46c;
+  display: table;
+  width: 100%;
+  padding: 30px;
+  text-align: center;
+}
+.ingredientsBlock p {
+  padding: 0;
+  margin: 0;
+  font-weight: bold;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+.ingredientBtns {
+  margin: 10px 0 20px;
+  display: flex;
+  justify-content: center;
+}
+.ingredientBtn {
+  border: 0;
+  background-color: #c17116;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  display: table;
+  width: 95px;
+  margin: 0 5px;
+}
+.ingredientBtn:disabled{
+  background:  #533618;
+  color: #ccc;
+  cursor: no-drop;
+}
+.orderBtn {
+  border: 0;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #dad735;
+  outline: none;
+  border: 1px solid #966909;
+  color: #966909;
+  font-family: inherit;
+  font-size: 1.2em;
+  padding: 15px 30px;
+  -webkit-box-shadow: 2px 2px 2px #966909;
+  box-shadow: 2px 2px 2px #966909;
+}
+.orderBtn:disabled{
+  background:  #533618;
+  color: #ccc;
+  cursor: no-drop;
+}
+.top {
+  background-image: url(../assets/top.png);
+  background-size: 40%;
+  height: 150px;
+  width: 100%;
+  display: table;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.bottom {
+  background-image: url(../assets/bottom.png);
+  background-size: 40%;
+  height: 100px;
+  width: 100%;
+  display: table;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.bacon {
+  width: 39%;
+  height: 4%;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#bf3813),
+    to(#c45e38)
+  );
+  background: -webkit-linear-gradient(#bf3813, #c45e38);
+  background: -o-linear-gradient(#bf3813, #c45e38);
+  background: linear-gradient(#bf3813, #c45e38);
+  margin: 0.5% auto;
+}
+.cheese {
+  width: 42%;
+  height: 7%;
+  margin: 0.5% auto;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#f4d004),
+    to(#d6bb22)
+  );
+  background: -webkit-linear-gradient(#f4d004, #d6bb22);
+  background: -o-linear-gradient(#f4d004, #d6bb22);
+  background: linear-gradient(#f4d004, #d6bb22);
+  border-radius: 20px;
+}
+.meat {
+  width: 39%;
+  height: 10%;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#7f3608),
+    to(#702e05)
+  );
+  background: -webkit-linear-gradient(#7f3608, #702e05);
+  background: -o-linear-gradient(#7f3608, #702e05);
+  background: linear-gradient(#7f3608, #702e05);
+  margin: 0.5% auto;
+  border-radius: 15px;
+}
+
+.lettuce {
+  width: 40%;
+  height: 10%;
+  margin: 0.5% auto;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#228c1d),
+    to(#91ce50)
+  );
+  background: -webkit-linear-gradient(#228c1d, #91ce50);
+  background: -o-linear-gradient(#228c1d, #91ce50);
+  background: linear-gradient(#228c1d, #91ce50);
+  border-radius: 20px;
+}
