@@ -1,12 +1,12 @@
-import { Spinner } from "react-bootstrap";
-import "../App.css";
+import { Spinner } from 'react-bootstrap'
+import '../App.css'
 
-function Loader() {
+function Loader () {
   return (
-    <div className="spinner">
-      <Spinner animation="grow" variant="primary" size="lg" />
+    <div className='spinner'>
+      <Spinner animation='grow' variant='primary' size='lg' />
     </div>
-  );
+  )
 }
 
-export default Loader;
+export default Loader

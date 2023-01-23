@@ -1,13 +1,13 @@
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
-import { Link } from "react-router-dom";
+import Button from 'react-bootstrap/Button'
+import Modal from 'react-bootstrap/Modal'
+import { Link } from 'react-router-dom'
 
-function Checkout(props) {
+function Checkout (props) {
   return (
     <Modal
       {...props}
-      size="md"
-      aria-labelledby="contained-modal-title-vcenter"
+      size='md'
+      aria-labelledby='contained-modal-title-vcenter'
       centered
     >
       <Modal.Body>
@@ -23,17 +23,17 @@ function Checkout(props) {
       <Modal.Footer>
         <h6>Continue to checkout?</h6>
         <Link
-          className="btn btn-primary"
-          to={"/order"}
+          className='btn btn-primary'
+          to='/order'
           state={{ burger: props.burger }}
         >
           Continue
         </Link>
-        <Button className="btn-danger" onClick={props.onHide}>
+        <Button className='btn-danger' onClick={props.onHide}>
           Close
         </Button>
       </Modal.Footer>
     </Modal>
-  );
+  )
 }
-export default Checkout;
+export default Checkout

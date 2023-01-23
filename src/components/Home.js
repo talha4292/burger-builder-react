@@ -1,202 +1,203 @@
-import { useState, useEffect } from "react";
-import { onAuthStateChanged } from "firebase/auth";
-import { Link } from "react-router-dom";
-import { auth } from "../database/firebase-config";
-import { makeBurger } from "./Burger";
-import Checkout from "./Checkout";
+import { useState, useEffect } from 'react'
+import { onAuthStateChanged } from 'firebase/auth'
+import { Link } from 'react-router-dom'
+import { auth } from '../database/firebase-config'
+import { makeBurger } from './Burger'
+import Checkout from './Checkout'
 
-function Home() {
-  const [lettuce, setLettuce] = useState(0);
-  const [bacon, setBacon] = useState(0);
-  const [cheese, setCheese] = useState(0);
-  const [meat, setMeat] = useState(0);
-  const [price, setPrice] = useState(0);
-  const [user, setUser] = useState({});
+function Home () {
+  const [lettuce, setLettuce] = useState(0)
+  const [bacon, setBacon] = useState(0)
+  const [cheese, setCheese] = useState(0)
+  const [meat, setMeat] = useState(0)
+  const [price, setPrice] = useState(0)
+  const [user, setUser] = useState({})
   const [burger, setBurger] = useState({
     ingredients: { lettuce: 0, bacon: 0, cheese: 0, meat: 0 },
-    price: 0,
-  });
-  const [modalShow, setModalShow] = useState(false);
+    price: 0
+  })
+  const [modalShow, setModalShow] = useState(false)
 
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-    });
-  }, []);
+      setUser(currentUser)
+    })
+  }, [])
 
   useEffect(() => {
     setBurger({
       ingredients: {
-        lettuce: lettuce,
-        bacon: bacon,
-        cheese: cheese,
-        meat: meat,
+        lettuce,
+        bacon,
+        cheese,
+        meat
       },
-      price: price,
-    });
-  }, [bacon, cheese, lettuce, meat, price]);
+      price
+    })
+  }, [bacon, cheese, lettuce, meat, price])
 
   const addRemoveIngredient = (action, ingredient) => {
     switch (ingredient) {
-      case "lettuce": {
-        if (action === "add") {
-          setLettuce(lettuce + 1);
-          setPrice(price + 200);
+      case 'lettuce': {
+        if (action === 'add') {
+          setLettuce(lettuce + 1)
+          setPrice(price + 200)
         } else {
           if (lettuce > 0) {
-            setLettuce(lettuce - 1);
-            setPrice(price - 200);
+            setLettuce(lettuce - 1)
+            setPrice(price - 200)
           }
         }
-        break;
+        break
       }
-      case "bacon": {
-        if (action === "add") {
-          setBacon(bacon + 1);
-          setPrice(price + 250);
+      case 'bacon': {
+        if (action === 'add') {
+          setBacon(bacon + 1)
+          setPrice(price + 250)
         } else {
           if (bacon > 0) {
-            setBacon(bacon - 1);
-            setPrice(price - 250);
+            setBacon(bacon - 1)
+            setPrice(price - 250)
           }
         }
-        break;
+        break
       }
-      case "cheese": {
-        if (action === "add") {
-          setCheese(cheese + 1);
-          setPrice(price + 320);
+      case 'cheese': {
+        if (action === 'add') {
+          setCheese(cheese + 1)
+          setPrice(price + 320)
         } else {
           if (cheese > 0) {
-            setCheese(cheese - 1);
-            setPrice(price - 320);
+            setCheese(cheese - 1)
+            setPrice(price - 320)
           }
         }
-        break;
+        break
       }
-      case "meat": {
-        if (action === "add") {
-          setMeat(meat + 1);
-          setPrice(price + 400);
+      case 'meat': {
+        if (action === 'add') {
+          setMeat(meat + 1)
+          setPrice(price + 400)
         } else {
           if (meat > 0) {
-            setMeat(meat - 1);
-            setPrice(price - 400);
+            setMeat(meat - 1)
+            setPrice(price - 400)
           }
         }
-        break;
+        break
       }
       default:
-        break;
+        break
     }
-  };
+  }
 
   const handleOrder = () => {
-    setModalShow(true);
-  };
+    setModalShow(true)
+  }
 
-  return(
+  return (
     <>
       <Checkout
         show={modalShow}
         burger={burger}
         onHide={() => setModalShow(false)}
       />
-      <div className="burgerIngredients">
-        <div className="top"></div>
+      <div className='burgerIngredients'>
+        <div className='top' />
         {makeBurger(burger.ingredients)}
-        <div className="bottom"></div>
+        <div className='bottom' />
       </div>
-      <div className="ingredientsBlock">
+      <div className='ingredientsBlock'>
         <h4>
           Current Price: <strong>Rs. {price}</strong>
         </h4>
         <p>Lettuce</p>
-        <div className="ingredientBtns">
+        <div className='ingredientBtns'>
           <button
-            onClick={() => addRemoveIngredient("remove", "lettuce")}
-            className="ingredientBtn"
+            onClick={() => addRemoveIngredient('remove', 'lettuce')}
+            className='ingredientBtn'
             disabled={lettuce < 1}
           >
             Less
           </button>
           <button
-            onClick={() => addRemoveIngredient("add", "lettuce")}
-            className="ingredientBtn"
+            onClick={() => addRemoveIngredient('add', 'lettuce')}
+            className='ingredientBtn'
           >
             More
           </button>
         </div>
         <p>Bacon</p>
-        <div className="ingredientBtns">
+        <div className='ingredientBtns'>
           <button
-            onClick={() => addRemoveIngredient("remove", "bacon")}
-            className="ingredientBtn"
+            onClick={() => addRemoveIngredient('remove', 'bacon')}
+            className='ingredientBtn'
             disabled={bacon < 1}
           >
             Less
           </button>
           <button
-            onClick={() => addRemoveIngredient("add", "bacon")}
-            className="ingredientBtn"
+            onClick={() => addRemoveIngredient('add', 'bacon')}
+            className='ingredientBtn'
           >
             More
           </button>
         </div>
         <p>Cheese</p>
-        <div className="ingredientBtns">
+        <div className='ingredientBtns'>
           <button
-            onClick={() => addRemoveIngredient("remove", "cheese")}
-            className="ingredientBtn"
+            onClick={() => addRemoveIngredient('remove', 'cheese')}
+            className='ingredientBtn'
             disabled={cheese < 1}
           >
             Less
           </button>
           <button
-            onClick={() => addRemoveIngredient("add", "cheese")}
-            className="ingredientBtn"
+            onClick={() => addRemoveIngredient('add', 'cheese')}
+            className='ingredientBtn'
           >
             More
           </button>
         </div>
         <p>Meat</p>
-        <div className="ingredientBtns">
+        <div className='ingredientBtns'>
           <button
-            onClick={() => addRemoveIngredient("remove", "meat")}
-            className="ingredientBtn"
+            onClick={() => addRemoveIngredient('remove', 'meat')}
+            className='ingredientBtn'
             disabled={meat < 1}
           >
             Less
           </button>
           <button
-            onClick={() => addRemoveIngredient("add", "meat")}
-            className="ingredientBtn"
+            onClick={() => addRemoveIngredient('add', 'meat')}
+            className='ingredientBtn'
           >
             More
           </button>
         </div>
-        {user ? (
-          <Link
-            style={{ pointerEvents: price === 0 ? "none" : "" }}
-            onClick={handleOrder}
-            className="orderBtn text-decoration-none"
-            to="/"
-          >
-            ORDER NOW
-          </Link>
-        ) : (
-          <Link
-            style={{ pointerEvents: price === 0 ? "none" : "" }}
-            className="orderBtn text-decoration-none"
-            to="/auth"
-          >
-            SIGN UP TO ORDER
-          </Link>
-        )}
+        {user
+          ? (
+            <Link
+              style={{ pointerEvents: price === 0 ? 'none' : '' }}
+              onClick={handleOrder}
+              className='orderBtn text-decoration-none'
+              to='/'
+            >
+              ORDER NOW
+            </Link>
+            )
+          : (
+            <Link
+              style={{ pointerEvents: price === 0 ? 'none' : '' }}
+              className='orderBtn text-decoration-none'
+              to='/auth'
+            >
+              SIGN UP TO ORDER
+            </Link>
+            )}
       </div>
     </>
-  );
-  
+  )
 }
 
 export default Home
