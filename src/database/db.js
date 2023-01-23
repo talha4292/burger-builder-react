@@ -14,7 +14,7 @@ async function createOrder (burger, price) {
     ingredients: burger,
     price
   }
-  await setDoc(doc(db, 'orders', order.id), order).then(alert('Order created'))
+  await setDoc(doc(db, 'orders', order.id), order).then(window.alert('Order created'))
 }
 
 export { getOrders, createOrder }

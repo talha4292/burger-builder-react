@@ -26,7 +26,7 @@ function Auth () {
       } else if (flag === 'register') {
         await createUserWithEmailAndPassword(auth, email, password)
         setLoader(false)
-        alert('Account Created')
+        window.alert('Account Created')
         setError('')
       }
     } catch (error) {
